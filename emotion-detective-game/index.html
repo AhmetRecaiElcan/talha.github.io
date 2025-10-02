@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duygu Dedektifi - Gizem Oyunu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 Duygu Dedektifi</h1>
+            <p>Duygusal karakterler arasında suçluyu bulun!</p>
+        </header>
+
+        <div id="gameContainer">
+            <!-- Oyun başlangıç ekranı -->
+            <div id="startScreen" class="screen active">
+                <div class="start-content">
+                    <h2>Oyuna Hoş Geldiniz!</h2>
+                    <p>4 farklı karakter ve onların hikayelerini keşfedeceksiniz. Bu karakterlerden biri suçludur. Sorularınızla gerçeği bulabilecek misiniz?</p>
+                    <button id="startGameBtn" class="btn primary">Oyunu Başlat</button>
+                </div>
+            </div>
+
+            <!-- Karakter oluşturma ekranı -->
+            <div id="loadingScreen" class="screen">
+                <div class="loading-content">
+                    <h2>Karakterler Hazırlanıyor...</h2>
+                    <div class="spinner"></div>
+                    <p id="loadingText">Duygu havuzundan karakterler seçiliyor...</p>
+                </div>
+            </div>
+
+            <!-- Olay hikayesi ekranı -->
+            <div id="caseScreen" class="screen">
+                <div class="case-content">
+                    <h2>🚨 Olay Raporu</h2>
+                    <div id="caseStory" class="case-story">
+                        <!-- Olay hikayesi buraya gelecek -->
+                    </div>
+                    <div class="case-suspects">
+                        <h3>🔍 Şüpheliler</h3>
+                        <div id="suspectsList" class="suspects-list">
+                            <!-- Şüpheli listesi buraya gelecek -->
+                        </div>
+                    </div>
+                    <button id="startInvestigationBtn" class="btn primary">Soruşturmaya Başla</button>
+                </div>
+            </div>
+
+            <!-- Ana oyun ekranı -->
+            <div id="gameScreen" class="screen">
+                <div class="characters-container">
+                    <h2>Karakterler</h2>
+                    <div id="charactersGrid" class="characters-grid">
+                        <!-- Karakterler buraya yüklenecek -->
+                    </div>
+                </div>
+
+                <div class="investigation-panel">
+                    <h3>Soruşturma</h3>
+                    <div id="selectedCharacter" class="selected-character">
+                        <p>Bir karaktere tıklayarak soru sormaya başlayın</p>
+                    </div>
+                    
+                    <div class="question-section">
+                        <textarea id="questionInput" placeholder="Karaktere sormak istediğiniz soruyu yazın..." rows="3"></textarea>
+                        <button id="askQuestionBtn" class="btn secondary" disabled>Soru Sor</button>
+                    </div>
+
+                    <div id="conversationHistory" class="conversation-history">
+                        <!-- Soru-cevap geçmişi buraya gelecek -->
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="makeAccusationBtn" class="btn danger">Suçluyu Seç</button>
+                    <button id="newGameBtn" class="btn primary">Yeni Oyun</button>
+                </div>
+            </div>
+
+            <!-- Suçlu seçme ekranı -->
+            <div id="accusationScreen" class="screen">
+                <div class="accusation-content">
+                    <h2>Suçluyu Seçin</h2>
+                    <p>Hangi karakterin suçlu olduğunu düşünüyorsunuz?</p>
+                    <div id="accusationGrid" class="accusation-grid">
+                        <!-- Karakter seçenekleri buraya gelecek -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sonuç ekranı -->
+            <div id="resultScreen" class="screen">
+                <div class="result-content">
+                    <h2 id="resultTitle"></h2>
+                    <div id="resultMessage"></div>
+                    <div id="realCulpritInfo"></div>
+                    <button id="playAgainBtn" class="btn primary">Tekrar Oyna</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Sayfası - Duygu Dedektifi</title>
+</head>
+<body>
+    <h1>Oyun Testi</h1>
+    <p>Eğer bu sayfayı görüyorsanız, dosyalar doğru konumda.</p>
+    <p><a href="index.html">Oyunu Başlat</a></p>
+    
+    <h2>API Test</h2>
+    <button onclick="testAPI()">Gemini API Test</button>
+    <div id="apiResult"></div>
+    
+    <script>
+        async function testAPI() {
+            const API_KEY = 'AIzaSyCZAyW7JivjLd_Iie0sxlZNVoIEqO4IUK0';
+            const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
+            
+            try {
+                const response = await fetch(`${API_URL}?key=${API_KEY}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: "Merhaba! Bu bir test mesajıdır."
+                            }]
+                        }]
+                    })
+                });
+                
+                const data = await response.json();
+                document.getElementById('apiResult').innerHTML = `
+                    <h3>API Başarılı!</h3>
+                    <p>${data.candidates[0].content.parts[0].text}</p>
+                `;
+            } catch (error) {
+                document.getElementById('apiResult').innerHTML = `
+                    <h3>API Hatası:</h3>
+                    <p style="color: red;">${error.message}</p>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
