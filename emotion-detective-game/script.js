@@ -1,5 +1,5 @@
 // Gemini API yapılandırması
-const API_KEY = 'AIzaSyCZAyW7JivjLd_Iie0sxlZNVoIEqO4IUK0';
+const API_KEY = 'AIzaSyBaFwXTIQycwQlKV0P5Si_tOBzMX07WHz8';
 const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent';
 
 // Oyun durumu
